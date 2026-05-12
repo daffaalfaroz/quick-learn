@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QuickLearn - Pilih Kelas</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .page-bg { background: linear-gradient(180deg, #1565C0, #29B6F6, #E3F2FD); min-height: 100vh; display: flex; flex-direction: column; position: relative; }
+        .bg-blobs { position: absolute; width: 100%; height: 100%; overflow: hidden; pointer-events: none; z-index: 0; }
+        .blob { position: absolute; border-radius: 50%; background: white; opacity: 0.1; }
+        .blob1 { width: 300px; height: 300px; top: -50px; left: -100px; }
+        .blob2 { width: 250px; height: 250px; top: 40%; right: -50px; }
+        
+        .header-section { padding: 24px; position: relative; z-index: 10; height: 200px; }
+        .btn-back { color: white; margin-bottom: 16px; display: inline-flex; }
+        .header-title-wrapper { max-width: 60%; }
+        .header-title { color: white; font-size: 28px; line-height: 1.2; }
+        .header-title-bold { font-weight: 800; display: block; }
+        .header-illus { position: absolute; bottom: 0; right: 20px; font-size: 120px; line-height: 1; }
+        
+        .content-scroll { flex: 1; padding: 16px 24px 40px; position: relative; z-index: 10; display: flex; flex-direction: column; gap: 20px; overflow-y: auto; }
+        .group-card { background: white; border-radius: 20px; padding: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
+        .mapel-title { font-weight: 800; font-size: 18px; text-align: center; margin-bottom: 16px; color: var(--text-dark); }
+        
+        .class-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+        .class-btn {
+            background: #F0F0F0; border-radius: 14px; padding: 16px 12px; text-align: center;
+            display: flex; flex-direction: column; gap: 4px; transition: all 0.2s; text-decoration: none; cursor: pointer;
+        }
+        .class-btn:hover { background: var(--gradient); transform: translateY(-2px); }
+        .class-btn:hover .class-label { color: rgba(255,255,255,0.8); }
+        .class-btn:hover .class-num { color: white; }
+        
+        .class-label { color: var(--text-gray); font-size: 13px; transition: color 0.2s; }
+        .class-num { color: var(--text-dark); font-weight: 800; font-size: 22px; transition: color 0.2s; }
+    </style>
+</head>
+<body>
+    <div class="app-container w-600 page-bg" style="margin: 0 auto;">
+        <div class="bg-blobs">
+            <div class="blob blob1"></div>
+            <div class="blob blob2"></div>
+        </div>
+
+        <div class="header-section">
+            <button class="btn-back" onclick="window.history.back()">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+            </button>
+            <div class="header-title-wrapper">
+                <span class="header-title">Yuk pilih <span class="header-title-bold">Kelasmu !</span></span>
+            </div>
+            <div class="header-illus">🙋‍♂️</div>
+        </div>
+
+        <div class="content-scroll">
+            <div class="group-card">
+                <div class="mapel-title">Biologi</div>
+                <div class="class-grid">
+                    <a href="materi-detail.html" class="class-btn">
+                        <span class="class-label">Kelas</span><span class="class-num">10</span>
+                    </a>
+                    <a href="materi-detail.html" class="class-btn">
+                        <span class="class-label">Kelas</span><span class="class-num">11</span>
+                    </a>
+                    <a href="materi-detail.html" class="class-btn">
+                        <span class="class-label">Kelas</span><span class="class-num">12</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="group-card">
+                <div class="mapel-title">Kimia</div>
+                <div class="class-grid">
+                    <a href="materi-detail.html" class="class-btn">
+                        <span class="class-label">Kelas</span><span class="class-num">10</span>
+                    </a>
+                    <a href="materi-detail.html" class="class-btn">
+                        <span class="class-label">Kelas</span><span class="class-num">11</span>
+                    </a>
+                    <a href="materi-detail.html" class="class-btn">
+                        <span class="class-label">Kelas</span><span class="class-num">12</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="group-card">
+                <div class="mapel-title">Pemograman</div>
+                <div class="class-grid">
+                    <a href="materi-detail.html" class="class-btn">
+                        <span class="class-label">Kelas</span><span class="class-num">10</span>
+                    </a>
+                    <a href="materi-detail.html" class="class-btn">
+                        <span class="class-label">Kelas</span><span class="class-num">11</span>
+                    </a>
+                    <a href="materi-detail.html" class="class-btn">
+                        <span class="class-label">Kelas</span><span class="class-num">12</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
