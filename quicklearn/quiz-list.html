@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QuickLearn - Quiz List</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .header-bg {
+            background: var(--gradient);
+            border-radius: 0 0 28px 28px;
+            padding: 32px 24px 40px;
+            position: relative;
+            overflow: hidden;
+        }
+        .btn-back { display: inline-flex; color: white; margin-bottom: 16px; }
+        .header-title { color: white; font-size: 36px; font-weight: 800; margin-bottom: 4px; }
+        .header-sub { color: white; font-size: 14px; }
+        .header-decor { position: absolute; right: 0; top: 0; opacity: 0.3; }
+        
+        .list-container {
+            padding: 0 20px 40px;
+            margin-top: -20px;
+            position: relative;
+            z-index: 10;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .quiz-item {
+            background: white;
+            border-radius: 16px;
+            padding: 16px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+            text-decoration: none;
+            transition: background 0.2s, transform 0.2s;
+        }
+        .quiz-item:hover { background: #EEF5FF; transform: scale(1.01); }
+        .item-number {
+            width: 40px; height: 40px; border-radius: 50%;
+            background: var(--gradient); color: white;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 18px; font-weight: 700; flex-shrink: 0;
+        }
+        .item-content { flex: 1; }
+        .item-title { font-weight: 600; font-size: 16px; color: var(--text-dark); margin-bottom: 4px; }
+        .item-sub { font-size: 12px; color: var(--text-light-gray); }
+        .item-time { display: flex; flex-direction: column; align-items: center; color: var(--primary-blue); font-weight: 700; font-size: 12px; gap: 4px; }
+    </style>
+</head>
+<body>
+    <div class="app-container" style="margin: 0 auto;">
+        <div class="header-bg">
+            <button class="btn-back" onclick="window.location.href='home.html'">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+            </button>
+            <h1 class="header-title">BIOLOGI</h1>
+            <p class="header-sub">Yuk mulai Quiz nya !</p>
+            <!-- Decor SVG -->
+            <svg class="header-decor" width="150" height="150" viewBox="0 0 100 100" fill="none" stroke="white" stroke-width="1.5">
+                <circle cx="20" cy="20" r="3" fill="white"/><circle cx="50" cy="30" r="3" fill="white"/>
+                <circle cx="80" cy="10" r="3" fill="white"/><circle cx="30" cy="60" r="3" fill="white"/>
+                <circle cx="70" cy="70" r="3" fill="white"/><circle cx="90" cy="40" r="3" fill="white"/>
+                <line x1="20" y1="20" x2="50" y2="30"/><line x1="50" y1="30" x2="80" y2="10"/>
+                <line x1="20" y1="20" x2="30" y2="60"/><line x1="50" y1="30" x2="70" y2="70"/>
+                <line x1="80" y1="10" x2="90" y2="40"/><line x1="30" y1="60" x2="70" y2="70"/>
+            </svg>
+        </div>
+
+        <div class="list-container">
+            <a href="quiz-question.html" class="quiz-item">
+                <div class="item-number">1</div>
+                <div class="item-content">
+                    <div class="item-title">Ruang lingkup biologi</div>
+                    <div class="item-sub">Kelas 10</div>
+                </div>
+                <div class="item-time">⏱️ 30s</div>
+            </a>
+            <a href="quiz-question.html" class="quiz-item">
+                <div class="item-number">2</div>
+                <div class="item-content">
+                    <div class="item-title">Ekosistem</div>
+                    <div class="item-sub">Kelas 10</div>
+                </div>
+                <div class="item-time">⏱️ 30s</div>
+            </a>
+            <a href="quiz-question.html" class="quiz-item">
+                <div class="item-number">3</div>
+                <div class="item-content">
+                    <div class="item-title">Perubahan lingkungan</div>
+                    <div class="item-sub">Kelas 10</div>
+                </div>
+                <div class="item-time">⏱️ 25s</div>
+            </a>
+            <a href="quiz-question.html" class="quiz-item">
+                <div class="item-number">4</div>
+                <div class="item-content">
+                    <div class="item-title">Virus</div>
+                    <div class="item-sub">Kelas 10</div>
+                </div>
+                <div class="item-time">⏱️ 25s</div>
+            </a>
+            <a href="quiz-question.html" class="quiz-item">
+                <div class="item-number">5</div>
+                <div class="item-content">
+                    <div class="item-title">Protista</div>
+                    <div class="item-sub">Kelas 10</div>
+                </div>
+                <div class="item-time">⏱️ 25s</div>
+            </a>
+            <a href="quiz-question.html" class="quiz-item">
+                <div class="item-number">6</div>
+                <div class="item-content">
+                    <div class="item-title">Plantae</div>
+                    <div class="item-sub">Kelas 10</div>
+                </div>
+                <div class="item-time">⏱️ 25s</div>
+            </a>
+        </div>
+    </div>
+</body>
+</html>

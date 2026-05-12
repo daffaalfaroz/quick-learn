@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QuickLearn - Welcome</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .welcome-top {
+            flex: 6;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .welcome-bottom {
+            flex: 4;
+            background: var(--gradient);
+            border-radius: 24px 24px 0 0;
+            padding: 32px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+        }
+        .logo-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.1;
+        }
+        .logo-quick { font-size: 32px; font-weight: 800; background: var(--gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .logo-learn { font-size: 32px; font-weight: 800; color: var(--text-dark); }
+        .welcome-title { color: white; font-weight: 500; margin-bottom: 8px; }
+    </style>
+</head>
+<body>
+    <div class="app-container bg-white flex-column">
+        <div class="welcome-top">
+            <div class="logo-wrapper">
+                <svg width="48" height="64" viewBox="0 0 24 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M14 0L0 18H10L8 32L24 12H13L14 0Z" fill="url(#paint0_linear)"/>
+                    <defs>
+                        <linearGradient id="paint0_linear" x1="0" y1="0" x2="24" y2="32" gradientUnits="userSpaceOnUse">
+                            <stop stop-color="#1565C0"/><stop offset="1" stop-color="#00BCD4"/>
+                        </linearGradient>
+                    </defs>
+                </svg>
+                <div class="logo-text">
+                    <span class="logo-quick">QUICK</span>
+                    <span class="logo-learn">LEARN</span>
+                </div>
+            </div>
+        </div>
+        <div class="welcome-bottom">
+            <p class="welcome-title">Jelajahi Pengetahuan</p>
+            <button class="btn-white" onclick="window.location.href='login.html'">Mulai</button>
+            <button class="btn-white" onclick="window.location.href='signup.html'">
+                <span style="font-weight: 400;">Baru di sini?</span> <span class="text-blue">Daftar</span>
+            </button>
+        </div>
+    </div>
+</body>
+</html>
