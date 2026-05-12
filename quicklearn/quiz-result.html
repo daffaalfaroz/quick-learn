@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QuickLearn - Quiz Result</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .header-bg {
+            background: var(--gradient);
+            border-radius: 0 0 50% 50%;
+            height: 320px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            overflow: hidden;
+            margin-bottom: 20px;
+        }
+        .btn-icon { color: white; position: absolute; top: 24px; }
+        .btn-icon.left { left: 24px; }
+        .btn-icon.right { right: 24px; }
+        
+        .concentric { position: absolute; border-radius: 50%; background: white; top: 50%; left: 50%; transform: translate(-50%, -50%); }
+        .c1 { width: 280px; height: 280px; opacity: 0.05; }
+        .c2 { width: 220px; height: 220px; opacity: 0.1; }
+        .c3 { width: 160px; height: 160px; opacity: 0.15; }
+        .score-circle {
+            position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+            width: 130px; height: 130px; border-radius: 50%; background: white;
+            display: flex; flex-direction: column; align-items: center; justify-content: center;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+        .score-label { color: var(--primary-blue); font-size: 14px; margin-bottom: -4px; }
+        .score-val { color: var(--primary-blue); font-size: 42px; font-weight: 800; display: flex; align-items: baseline; }
+        .score-unit { font-size: 18px; }
+        
+        .stats-card {
+            background: white; border-radius: 20px; padding: 32px; margin: 0 20px 24px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.06);
+            display: grid; grid-template-columns: 1fr 1fr; gap: 24px;
+        }
+        .stat-item { display: flex; flex-direction: column; gap: 4px; }
+        .stat-val { font-size: 20px; font-weight: 800; display: flex; align-items: center; gap: 8px; }
+        .stat-val::before { content: '●'; font-size: 14px; }
+        .stat-val.blue { color: var(--primary-blue); }
+        .stat-val.green { color: var(--success); }
+        .stat-val.red { color: var(--error); }
+        .stat-label { font-size: 12px; color: var(--text-light-gray); padding-left: 20px; }
+        
+        .actions-container { display: flex; justify-content: center; gap: 24px; margin-bottom: 40px; }
+        .action-btn { display: flex; flex-direction: column; align-items: center; gap: 8px; }
+        .action-circle {
+            width: 60px; height: 60px; border-radius: 50%;
+            background: var(--gradient); color: white;
+            display: flex; align-items: center; justify-content: center;
+            box-shadow: 0 4px 15px rgba(21, 101, 192, 0.3); transition: transform 0.2s;
+        }
+        .action-circle:hover { transform: scale(1.05); }
+        .action-circle svg { width: 28px; height: 28px; }
+        .action-label { color: var(--primary-blue); font-size: 12px; font-weight: 600; }
+    </style>
+</head>
+<body>
+    <div class="app-container" style="margin: 0 auto;">
+        <div class="header-bg">
+            <button class="btn-icon left" onclick="window.location.href='home.html'">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+            </button>
+            <button class="btn-icon right">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="21" x2="4" y2="14"></line><line x1="4" y1="10" x2="4" y2="3"></line><line x1="12" y1="21" x2="12" y2="12"></line><line x1="12" y1="8" x2="12" y2="3"></line><line x1="20" y1="21" x2="20" y2="16"></line><line x1="20" y1="12" x2="20" y2="3"></line></svg>
+            </button>
+            
+            <div class="concentric c1"></div>
+            <div class="concentric c2"></div>
+            <div class="concentric c3"></div>
+            
+            <div class="score-circle">
+                <div class="score-label">Skor mu</div>
+                <div class="score-val">100<span class="score-unit">Pt</span></div>
+            </div>
+        </div>
+
+        <div class="stats-card">
+            <div class="stat-item">
+                <div class="stat-val blue">100%</div>
+                <div class="stat-label">Completion</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-val blue">20</div>
+                <div class="stat-label">Total Question</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-val green">13</div>
+                <div class="stat-label">Correct</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-val red">07</div>
+                <div class="stat-label">Wrong</div>
+            </div>
+        </div>
+
+        <div class="actions-container">
+            <button class="action-btn" onclick="window.location.href='quiz-question.html'">
+                <div class="action-circle">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 2v6h-6"></path><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"></path></svg>
+                </div>
+                <span class="action-label">Mulai Lagi</span>
+            </button>
+            <button class="action-btn">
+                <div class="action-circle">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                </div>
+                <span class="action-label">Lihat jawaban</span>
+            </button>
+            <button class="action-btn">
+                <div class="action-circle">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
+                </div>
+                <span class="action-label">Bagikan</span>
+            </button>
+        </div>
+    </div>
+</body>
+</html>
