@@ -24,7 +24,7 @@ body {
 }
 .navbar h2 {
     margin: 0;
-    color: #FF9800;
+    color: #0d6efd;
     font-size: 1.5rem;
 }
 .nav-links {
@@ -40,7 +40,7 @@ body {
     transition: color 0.2s;
 }
 .nav-links a:hover {
-    color: #FF9800;
+    color: #0d6efd;
 }
 
 /* Container */
@@ -62,7 +62,7 @@ body {
 }
 .card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(255, 152, 0, 0.15);
+    box-shadow: 0 10px 20px rgba(13, 110, 253, 0.15);
 }
 .card h2 {
     margin-top: 0;
@@ -87,12 +87,12 @@ input {
 }
 input:focus {
     outline: none;
-    border-color: #FF9800;
-    box-shadow: 0 0 0 3px rgba(255, 152, 0, 0.1);
+    border-color: #0d6efd;
+    box-shadow: 0 0 0 3px rgba(13, 110, 253, 0.1);
 }
 button {
     padding: 0.75rem 1.5rem;
-    background: #FF9800;
+    background: #0d6efd;
     color: white;
     border: none;
     border-radius: 6px;
@@ -102,7 +102,7 @@ button {
     transition: background 0.2s;
 }
 button:hover {
-    background: #E65100;
+    background: #0a58ca;
 }
 button:disabled {
     background: #ced4da;
@@ -134,15 +134,15 @@ button:disabled {
 }
 .option-btn:hover { background: #e9ecef; }
 .option-btn.selected {
-    background: #FFF3E0;
-    border-color: #FF9800;
-    color: #FF9800;
+    background: #e7f1ff;
+    border-color: #0d6efd;
+    color: #0d6efd;
     font-weight: bold;
 }
 
 /* Result Page Styles */
 .result-header {
-    background: linear-gradient(135deg, #FFC107, #FF9800);
+    background: linear-gradient(135deg, #0a3d91, #3ab0ff);
     border-radius: 0 0 50% 50%;
     padding: 3rem 1rem 8rem;
     text-align: center;
@@ -211,7 +211,7 @@ button:disabled {
     content: '●';
     font-size: 1rem;
 }
-.stat-item .val.blue::before, .stat-item .val.blue { color: #FF9800; }
+.stat-item .val.blue::before, .stat-item .val.blue { color: #0d6efd; }
 .stat-item .val.green::before, .stat-item .val.green { color: #28a745; }
 .stat-item .val.red::before, .stat-item .val.red { color: #dc3545; }
 .stat-item .label {
@@ -240,19 +240,19 @@ button:disabled {
     width: 65px;
     height: 65px;
     border-radius: 50%;
-    background: #FF9800;
+    background: #0d6efd;
     color: white;
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 4px 15px rgba(255, 152, 0, 0.3);
+    box-shadow: 0 4px 15px rgba(13, 110, 253, 0.3);
     transition: transform 0.2s;
 }
 .action-btn:hover .action-circle {
     transform: scale(1.08);
 }
 .action-label {
-    color: #FF9800;
+    color: #0d6efd;
     font-size: 0.9rem;
     font-weight: 500;
 }
