@@ -201,12 +201,12 @@ function render(params) {
     if (state.currentUser && state.currentPath !== '/login' && state.currentPath !== '/register') {
         content += `
             <div class="navbar">
-                <h2>QuickLearn Pro</h2>
+                <img src="logo.png" alt="QuickLearn Logo" style="height: 35px;">
                 <div class="nav-links">
                     <a onclick="navigate('/materi')">Materi Belajar</a>
                     <a onclick="navigate('/dashboard')">Dashboard Kuis</a>
                     <a onclick="navigate('/history')">Riwayat Hasil</a>
-                    <span style="border-left: 1px solid #ccc; padding-left: 15px; color: #6c757d; cursor: pointer; transition: color 0.2s;" onclick="navigate('/profile')" onmouseover="this.style.color='#0d6efd'" onmouseout="this.style.color='#6c757d'">Halo, <strong id="navUsername">${state.currentUser.name}</strong></span>
+                    <span style="border-left: 1px solid #ccc; padding-left: 15px; color: #6c757d; cursor: pointer; transition: color 0.2s;" onclick="navigate('/profile')" onmouseover="this.style.color='#0066ff'" onmouseout="this.style.color='#6c757d'">Halo, <strong id="navUsername">${state.currentUser.name}</strong></span>
                     <a onclick="logout()" style="color: #dc3545; cursor: pointer;">Logout</a>
                 </div>
             </div>
@@ -241,7 +241,7 @@ function render(params) {
 function renderLogin() {
     return `
         <div class="card" style="max-width: 450px; margin: 4rem auto;">
-            <h2 style="text-align: center; color: #0d6efd; margin-bottom: 2rem;">QuickLearn Pro</h2>
+            <div style="text-align: center; margin-bottom: 2rem;"><img src="logo.png" alt="QuickLearn Logo" style="height: 60px;"></div>
             <h3>Login ke Sistem</h3>
             <div id="login-error" class="error"></div>
             <form id="loginForm">
@@ -250,7 +250,7 @@ function renderLogin() {
                 <button type="submit" style="width: 100%;">Masuk Sekarang</button>
             </form>
             <div style="text-align: center; margin-top: 1.5rem; font-size: 0.95rem;">
-                Belum memiliki akun? <a style="cursor:pointer; color:#0d6efd; font-weight: 500;" onclick="navigate('/register')">Daftar sekarang</a>
+                Belum memiliki akun? <a style="cursor:pointer; color:#0066ff; font-weight: 500;" onclick="navigate('/register')">Daftar sekarang</a>
             </div>
         </div>
     `;
@@ -259,7 +259,7 @@ function renderLogin() {
 function renderRegister() {
     return `
         <div class="card" style="max-width: 450px; margin: 4rem auto;">
-            <h2 style="text-align: center; color: #0d6efd; margin-bottom: 2rem;">QuickLearn Pro</h2>
+            <div style="text-align: center; margin-bottom: 2rem;"><img src="logo.png" alt="QuickLearn Logo" style="height: 60px;"></div>
             <h3>Buat Akun Baru</h3>
             <div id="reg-error" class="error"></div>
             <form id="regForm">
@@ -269,7 +269,7 @@ function renderRegister() {
                 <button type="submit" style="width: 100%;">Daftar & Mulai Belajar</button>
             </form>
             <div style="text-align: center; margin-top: 1.5rem; font-size: 0.95rem;">
-                Sudah memiliki akun? <a style="cursor:pointer; color:#0d6efd; font-weight: 500;" onclick="navigate('/login')">Login di sini</a>
+                Sudah memiliki akun? <a style="cursor:pointer; color:#0066ff; font-weight: 500;" onclick="navigate('/login')">Login di sini</a>
             </div>
         </div>
     `;
@@ -278,7 +278,7 @@ function renderRegister() {
 function renderDashboard() {
     let html = `
         <div style="margin-bottom: 2rem;">
-            <h1 style="color: #0d6efd;">Mari Uji Kemampuanmu Lewat Quiz</h1>
+            <h1 style="color: #0066ff;">Mari Uji Kemampuanmu Lewat Quiz</h1>
             <p style="color: #6c757d; font-size: 1.1rem;">Halo ${state.currentUser ? state.currentUser.name : 'Pengguna'}, pilih mata pelajaran untuk memulai.</p>
         </div>
         <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));">
@@ -287,8 +287,8 @@ function renderDashboard() {
     
     subjects.forEach(subject => {
         html += `
-            <div class="card" style="text-align: center; cursor: pointer; border-bottom: 4px solid #0d6efd; transition: transform 0.2s;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'" onclick="navigate('/quiz-topics', { subject: '${subject}' })">
-                <div style="width: 80px; height: 80px; background: #e7f1ff; color: #0d6efd; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem; font-size: 2rem; font-weight: bold;">
+            <div class="card" style="text-align: center; cursor: pointer; border-bottom: 4px solid #0066ff; transition: transform 0.2s;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'" onclick="navigate('/quiz-topics', { subject: '${subject}' })">
+                <div style="width: 80px; height: 80px; background: #e6f2ff; color: #0066ff; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem; font-size: 2rem; font-weight: bold;">
                     ${subject.charAt(0)}
                 </div>
                 <h3>${subject}</h3>
@@ -307,7 +307,7 @@ function renderQuizTopics(params) {
     let html = `
         <div style="margin-bottom: 2rem; display: flex; justify-content: space-between; align-items: center;">
             <div>
-                <h1 style="color: #0d6efd; text-transform: uppercase;">${subject}</h1>
+                <h1 style="color: #0066ff; text-transform: uppercase;">${subject}</h1>
                 <p style="color: #6c757d; font-size: 1.1rem;">Yuk mulai Quiz nya!</p>
             </div>
             <button onclick="navigate('/dashboard')" style="background: #fff; color: #333; border: 1px solid #ccc;">Kembali</button>
@@ -320,7 +320,7 @@ function renderQuizTopics(params) {
         html += `
             <div class="card" style="display: flex; align-items: center; justify-content: space-between; padding: 1.5rem; cursor: pointer; transition: transform 0.2s;" onmouseover="this.style.transform='translateX(5px)'" onmouseout="this.style.transform='translateX(0)'" onclick="startQuiz('${topic.id}')">
                 <div style="display: flex; align-items: center; gap: 1.5rem;">
-                    <div style="width: 50px; height: 50px; border-radius: 50%; background: #3ab0ff; color: white; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 1.5rem;">
+                    <div style="width: 50px; height: 50px; border-radius: 50%; background: #33ccff; color: white; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 1.5rem;">
                         ${index + 1}
                     </div>
                     <div>
@@ -328,7 +328,7 @@ function renderQuizTopics(params) {
                         <p style="margin: 5px 0 0; color: #6c757d; font-size: 0.9rem;">Kelas 10 • ${topic.questions.length} Soal</p>
                     </div>
                 </div>
-                <div style="text-align: center; color: #0d6efd;">
+                <div style="text-align: center; color: #0066ff;">
                     <div style="font-size: 1.2rem;">⏱</div>
                     <div style="font-size: 0.85rem; font-weight: bold;">${timeLimit}s</div>
                 </div>
@@ -373,7 +373,7 @@ function renderQuiz() {
         <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1.5rem;">
             <h2 style="margin-top: 0;">${activeQuizState.quiz.subject} - ${activeQuizState.quiz.title}</h2>
             <div style="display: flex; flex-direction: column; align-items: flex-end;">
-                <div style="background: linear-gradient(135deg, #0a3d91, #3ab0ff); color: white; padding: 0.5rem 1rem; border-radius: 6px; font-weight: bold; border: none; box-shadow: 0 2px 8px rgba(13, 110, 253, 0.3);">
+                <div style="background: linear-gradient(135deg, #0066ff, #33ccff); color: white; padding: 0.5rem 1rem; border-radius: 6px; font-weight: bold; border: none; box-shadow: 0 2px 8px rgba(13, 110, 253, 0.3);">
                     Sisa Waktu: <span id="timerDisplay">${activeQuizState.questionTimer}</span> detik
                 </div>
             </div>
@@ -381,10 +381,10 @@ function renderQuiz() {
         
         <div style="margin-bottom: 1.5rem;">
             <div style="display: flex; justify-content: space-between; font-size: 0.85rem; margin-bottom: 8px; font-weight: bold;">
-                <span id="bonusTextDisplay" style="color: #0d6efd;">Bonus Kecepatan Aktif!</span>
+                <span id="bonusTextDisplay" style="color: #0066ff;">Bonus Kecepatan Aktif!</span>
             </div>
             <div style="width: 100%; height: 10px; background: #e9ecef; border-radius: 5px; overflow: hidden; box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);">
-                <div id="bonusBarDisplay" style="width: 100%; height: 100%; background: linear-gradient(90deg, #3ab0ff, #0a3d91); transition: width 1s linear, background 0.3s;"></div>
+                <div id="bonusBarDisplay" style="width: 100%; height: 100%; background: linear-gradient(90deg, #33ccff, #0066ff); transition: width 1s linear, background 0.3s;"></div>
             </div>
         </div>
         
@@ -392,7 +392,7 @@ function renderQuiz() {
             <div style="margin-bottom: 1rem; color: #6c757d; font-weight: 500;">
                 Pertanyaan ${qIndex + 1} dari ${totalQ}
                 <div style="width: 100%; height: 8px; background: #e9ecef; border-radius: 4px; margin-top: 8px;">
-                    <div style="height: 100%; width: ${progressPct}%; background: linear-gradient(90deg, #3ab0ff, #0a3d91); border-radius: 4px; transition: width 0.3s;"></div>
+                    <div style="height: 100%; width: ${progressPct}%; background: linear-gradient(90deg, #33ccff, #0066ff); border-radius: 4px; transition: width 0.3s;"></div>
                 </div>
             </div>
             
@@ -509,18 +509,18 @@ function renderQuizResult() {
     return `
         <div style="max-width: 800px; margin: 0 auto; padding: 2rem 0;">
             <div style="text-align: center; margin-bottom: 3rem;">
-                <h1 style="color: #0d6efd; font-size: 2.5rem; margin-bottom: 0.5rem;">Kuis Selesai!</h1>
+                <h1 style="color: #0066ff; font-size: 2.5rem; margin-bottom: 0.5rem;">Kuis Selesai!</h1>
                 <p style="color: #6c757d; font-size: 1.2rem;">Berikut adalah hasil kinerja Anda untuk <b>${result.title}</b></p>
             </div>
 
-            <div class="card" style="display: flex; flex-direction: column; align-items: center; padding: 3rem; background: linear-gradient(135deg, #0d6efd, #3ab0ff); color: white; margin-bottom: 2rem; border: none;">
+            <div class="card" style="display: flex; flex-direction: column; align-items: center; padding: 3rem; background: linear-gradient(135deg, #0066ff, #33ccff); color: white; margin-bottom: 2rem; border: none;">
                 <div style="font-size: 1.5rem; opacity: 0.9; margin-bottom: 0.5rem;">Total Skor Anda</div>
                 <div style="font-size: 5rem; font-weight: bold; line-height: 1;">${result.scorePoints}<span style="font-size: 2rem; margin-left: 5px;">Pt</span></div>
             </div>
 
             <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); margin-bottom: 3rem;">
                 <div class="card" style="text-align: center;">
-                    <div style="font-size: 2rem; color: #0d6efd; font-weight: bold;">${Math.round((result.correct / result.total) * 100)}%</div>
+                    <div style="font-size: 2rem; color: #0066ff; font-weight: bold;">${Math.round((result.correct / result.total) * 100)}%</div>
                     <div style="color: #6c757d; font-size: 0.9rem; margin-top: 5px;">Akurasi</div>
                 </div>
                 <div class="card" style="text-align: center;">
@@ -538,10 +538,10 @@ function renderQuizResult() {
             </div>
 
             <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
-                <button onclick="startQuiz('${result.quizId}')" style="display: flex; align-items: center; gap: 8px; background: #fff; color: #0d6efd; border: 2px solid #0d6efd;">
+                <button onclick="startQuiz('${result.quizId}')" style="display: flex; align-items: center; gap: 8px; background: #fff; color: #0066ff; border: 2px solid #0066ff;">
                     <span style="font-size: 1.2rem;">↻</span> Ulangi Kuis
                 </button>
-                <button onclick="navigate('/review-answers')" style="display: flex; align-items: center; gap: 8px; background: #fff; color: #0d6efd; border: 2px solid #0d6efd;">
+                <button onclick="navigate('/review-answers')" style="display: flex; align-items: center; gap: 8px; background: #fff; color: #0066ff; border: 2px solid #0066ff;">
                     <span style="font-size: 1.2rem;">👁</span> Review Jawaban
                 </button>
                 <button onclick="shareResult()" style="display: flex; align-items: center; gap: 8px;">
@@ -563,7 +563,7 @@ function renderReviewAnswers() {
         <div style="max-width: 800px; margin: 0 auto; padding: 2rem 0;">
             <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 2rem; border-bottom: 2px solid #eee; padding-bottom: 1rem;">
                 <button onclick="navigate('/quiz-result')" style="background: transparent; color: #333; border: 1px solid #ccc; padding: 0.5rem 1rem;">&larr; Kembali</button>
-                <h2 style="margin: 0; color: #0d6efd;">Review Jawaban</h2>
+                <h2 style="margin: 0; color: #0066ff;">Review Jawaban</h2>
             </div>
     `;
     
@@ -663,7 +663,7 @@ function shareVideo(ytId, title) {
 function renderHistory() {
     let html = `
         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
-            <h1 style="color: #0d6efd;">Hasil Terbaru</h1>
+            <h1 style="color: #0066ff;">Hasil Terbaru</h1>
             <button onclick="navigate('/dashboard')" style="background: #fff; color: #333; border: 1px solid #ccc;">Kembali</button>
         </div>
     `;
@@ -685,7 +685,7 @@ function renderHistory() {
                 <div class="card" style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; padding: 1.5rem; gap: 1rem;">
                     <div style="flex: 1; min-width: 250px;">
                         <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 0.5rem;">
-                            <div style="width: 40px; height: 40px; border-radius: 50%; background: #0d6efd; color: white; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 1.2rem;">
+                            <div style="width: 40px; height: 40px; border-radius: 50%; background: #0066ff; color: white; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 1.2rem;">
                                 ${index + 1}
                             </div>
                             <div>
@@ -703,7 +703,7 @@ function renderHistory() {
                         </div>
                     </div>
                     <div style="text-align: right; border-left: 1px solid #eee; padding-left: 1.5rem;">
-                        <div style="font-size: 1.8rem; font-weight: 800; color: #0d6efd;">${h.scorePoints}<span style="font-size: 1rem;">Pt</span></div>
+                        <div style="font-size: 1.8rem; font-weight: 800; color: #0066ff;">${h.scorePoints}<span style="font-size: 1rem;">Pt</span></div>
                         <div style="font-size: 0.85rem; color: #6c757d;">Total Poin</div>
                     </div>
                 </div>
@@ -718,7 +718,7 @@ function renderHistory() {
 function renderMateriSubjects() {
     let html = `
         <div style="margin-bottom: 2rem;">
-            <h1 style="color: #0d6efd;">Materi Belajar</h1>
+            <h1 style="color: #0066ff;">Materi Belajar</h1>
             <p style="color: #6c757d; font-size: 1.1rem;">Pilih mata pelajaran untuk melihat materi video interaktif.</p>
         </div>
         <div class="grid">
@@ -726,8 +726,8 @@ function renderMateriSubjects() {
     Object.keys(materiDatabase).forEach(key => {
         const subject = materiDatabase[key];
         html += `
-            <div class="card" style="text-align: center; cursor: pointer; border-bottom: 4px solid #0d6efd; transition: transform 0.2s;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'" onclick="navigate('/materi/class', { subjectKey: '${key}' })">
-                <div style="width: 80px; height: 80px; background: #e7f1ff; color: #0d6efd; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem; font-size: 2rem; font-weight: bold;">
+            <div class="card" style="text-align: center; cursor: pointer; border-bottom: 4px solid #0066ff; transition: transform 0.2s;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'" onclick="navigate('/materi/class', { subjectKey: '${key}' })">
+                <div style="width: 80px; height: 80px; background: #e6f2ff; color: #0066ff; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem; font-size: 2rem; font-weight: bold;">
                     ${subject.name.charAt(0)}
                 </div>
                 <h3>${subject.name}</h3>
@@ -745,7 +745,7 @@ function renderMateriClasses(params) {
     let html = `
         <div style="margin-bottom: 2rem; display: flex; justify-content: space-between; align-items: center;">
             <div>
-                <h1 style="color: #0d6efd;">Yuk pilih Kelasmu!</h1>
+                <h1 style="color: #0066ff;">Yuk pilih Kelasmu!</h1>
                 <p style="color: #6c757d; font-size: 1.1rem;">Materi: ${subject.name}</p>
             </div>
             <button onclick="navigate('/materi')" style="background: #fff; color: #333; border: 1px solid #ccc;">Kembali</button>
@@ -754,8 +754,8 @@ function renderMateriClasses(params) {
     `;
     subject.classes.forEach(cls => {
         html += `
-            <div class="card" style="text-align: center; cursor: pointer; border: 2px solid #e9ecef; transition: border-color 0.2s;" onmouseover="this.style.borderColor='#0d6efd'" onmouseout="this.style.borderColor='#e9ecef'" onclick="navigate('/materi/timeline', { subjectKey: '${params.subjectKey}', classLevel: '${cls.level}' })">
-                <h2 style="color: #0d6efd; margin-bottom: 0;">Kelas</h2>
+            <div class="card" style="text-align: center; cursor: pointer; border: 2px solid #e9ecef; transition: border-color 0.2s;" onmouseover="this.style.borderColor='#0066ff'" onmouseout="this.style.borderColor='#e9ecef'" onclick="navigate('/materi/timeline', { subjectKey: '${params.subjectKey}', classLevel: '${cls.level}' })">
+                <h2 style="color: #0066ff; margin-bottom: 0;">Kelas</h2>
                 <h1 style="font-size: 4rem; margin: 0 0 1rem; color: #333;">${cls.level}</h1>
             </div>
         `;
@@ -772,7 +772,7 @@ function renderMateriTimeline(params) {
     let html = `
         <div style="margin-bottom: 2rem; display: flex; justify-content: space-between; align-items: center;">
             <div>
-                <h1 style="color: #0d6efd; text-transform: uppercase;">${subject.name}</h1>
+                <h1 style="color: #0066ff; text-transform: uppercase;">${subject.name}</h1>
                 <p style="color: #6c757d; font-size: 1.1rem;">Kelas ${cls.level} • Pelajari konsep dasar melalui video interaktif</p>
             </div>
             <button onclick="navigate('/materi/class', { subjectKey: '${params.subjectKey}' })" style="background: #fff; color: #333; border: 1px solid #ccc;">Kembali</button>
@@ -784,12 +784,12 @@ function renderMateriTimeline(params) {
         return html;
     }
 
-    html += `<div style="position: relative; margin-left: 20px; padding-left: 30px; border-left: 4px solid #0d6efd;">`;
+    html += `<div style="position: relative; margin-left: 20px; padding-left: 30px; border-left: 4px solid #0066ff;">`;
     
     cls.videos.forEach(v => {
         html += `
             <div style="position: relative; margin-bottom: 2rem;">
-                <div style="position: absolute; left: -44px; top: 20px; width: 24px; height: 24px; background: white; border: 4px solid #0d6efd; border-radius: 50%;"></div>
+                <div style="position: absolute; left: -44px; top: 20px; width: 24px; height: 24px; background: white; border: 4px solid #0066ff; border-radius: 50%;"></div>
                 <div class="card" style="display: flex; gap: 1.5rem; cursor: pointer; transition: transform 0.2s;" onmouseover="this.style.transform='translateX(5px)'" onmouseout="this.style.transform='translateX(0)'" onclick="navigate('/materi/watch', { subjectKey: '${params.subjectKey}', classLevel: '${cls.level}', videoId: '${v.id}' })">
                     <div style="width: 150px; height: 100px; background: #e9ecef; border-radius: 8px; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden;">
                         <div style="position: absolute; inset: 0; background: rgba(0,0,0,0.1);"></div>
@@ -820,7 +820,7 @@ function renderMateriWatch(params) {
     let html = `
         <div style="margin-bottom: 1rem;">
             <button onclick="navigate('/materi/timeline', { subjectKey: '${params.subjectKey}', classLevel: '${params.classLevel}' })" style="background: #fff; color: #333; border: 1px solid #ccc; margin-bottom: 1rem;">← Kembali ke Daftar Materi</button>
-            <h1 style="color: #0d6efd; margin-bottom: 0;">${video.title}</h1>
+            <h1 style="color: #0066ff; margin-bottom: 0;">${video.title}</h1>
             <p style="color: #6c757d; margin-top: 5px;">${subject.name} • Kelas ${cls.level}</p>
         </div>
 
@@ -839,7 +839,7 @@ function renderMateriWatch(params) {
                     : 
                     `<div style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;">
                         <div style="width: 80px; height: 80px; background: rgba(255,255,255,0.9); border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 4px 10px rgba(0,0,0,0.2);">
-                            <span style="font-size: 3rem; color: #0d6efd; margin-left: 10px;">▶</span>
+                            <span style="font-size: 3rem; color: #0066ff; margin-left: 10px;">▶</span>
                         </div>
                     </div>`
                 }
@@ -850,7 +850,7 @@ function renderMateriWatch(params) {
                     <span style="cursor: pointer; font-size: 1.2rem; filter: grayscale(1);">👎 Dislike</span>
                 </div>
                 <div style="display: flex; gap: 1.5rem;">
-                    <span style="cursor: pointer; font-size: 1.2rem; color: #0d6efd; font-weight: 500;" onclick="shareVideo('${video.ytId}', '${video.title}')">🔗 Bagikan</span>
+                    <span style="cursor: pointer; font-size: 1.2rem; color: #0066ff; font-weight: 500;" onclick="shareVideo('${video.ytId}', '${video.title}')">🔗 Bagikan</span>
                 </div>
             </div>
         </div>
@@ -865,11 +865,11 @@ function renderMateriWatch(params) {
             const isFirst = idx === 0;
             html += `
                 <div style="position: relative; margin-bottom: 1.5rem;">
-                    <div style="position: absolute; left: -36px; top: 15px; width: 12px; height: 12px; background: ${isFirst ? 'white' : '#3ab0ff'}; border: 3px solid #3ab0ff; border-radius: 50%;"></div>
+                    <div style="position: absolute; left: -36px; top: 15px; width: 12px; height: 12px; background: ${isFirst ? 'white' : '#33ccff'}; border: 3px solid #33ccff; border-radius: 50%;"></div>
                     <div class="card" style="padding: 1.5rem;">
                         <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 1.5rem;">
                             <p style="margin: 0; color: #555; font-size: 1rem; line-height: 1.6;">${chap.desc}</p>
-                            <span style="color: #0d6efd; font-size: 0.9rem; font-weight: bold; background: #e7f1ff; padding: 6px 12px; border-radius: 6px;">${chap.time}</span>
+                            <span style="color: #0066ff; font-size: 0.9rem; font-weight: bold; background: #e6f2ff; padding: 6px 12px; border-radius: 6px;">${chap.time}</span>
                         </div>
                     </div>
                 </div>
@@ -939,20 +939,22 @@ setInterval(() => {
             const maxTimer = activeQuizState.maxTimer;
             const elapsed = maxTimer - activeQuizState.questionTimer;
             let bonusPct = 100;
-            let bonusColor = '#28a745';
+            let bonusColor = '#0066ff';
+            let bonusBg = 'linear-gradient(90deg, #33ccff, #0066ff)';
             let bonusText = 'Bonus Maksimal!';
             
             if (elapsed > 10) {
                 const remaining = Math.max(1, maxTimer - 10);
                 const afterGrace = elapsed - 10;
                 bonusPct = Math.max(0, 100 - (afterGrace / remaining) * 100);
-                bonusColor = bonusPct > 50 ? '#3ab0ff' : '#dc3545';
+                bonusColor = bonusPct > 50 ? '#0066ff' : '#dc3545';
+                bonusBg = bonusPct > 50 ? 'linear-gradient(90deg, #33ccff, #0066ff)' : '#dc3545';
                 bonusText = 'Bonus menyusut...';
             }
             
             const bar = document.getElementById('bonusBarDisplay');
             const txt = document.getElementById('bonusTextDisplay');
-            if (bar) { bar.style.width = bonusPct + '%'; bar.style.backgroundColor = bonusColor; }
+            if (bar) { bar.style.width = bonusPct + '%'; bar.style.background = bonusBg; }
             if (txt) { 
                 txt.innerText = bonusText; 
                 txt.style.color = bonusColor;
@@ -993,12 +995,12 @@ function renderProfile() {
     
     return `
         <div style="max-width: 900px; margin: 0 auto; position: relative;">
-            <button style="position: absolute; right: 0; top: 0; background: #0d6efd; color: white; border: none; width: 45px; height: 45px; border-radius: 8px; font-size: 1.5rem; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 4px 10px rgba(0,0,0,0.1);" title="Settings">
+            <button style="position: absolute; right: 0; top: 0; background: #0066ff; color: white; border: none; width: 45px; height: 45px; border-radius: 8px; font-size: 1.5rem; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 4px 10px rgba(0,0,0,0.1);" title="Settings">
                 ⚙️
             </button>
             
             <div style="text-align: center; margin-bottom: 3rem; padding-top: 2rem;">
-                <div style="width: 100px; height: 100px; background: #e7f1ff; border-radius: 50%; margin: 0 auto 1.5rem; display: flex; align-items: center; justify-content: center; box-shadow: 0 8px 20px rgba(13, 110, 253,0.15);">
+                <div style="width: 100px; height: 100px; background: #e6f2ff; border-radius: 50%; margin: 0 auto 1.5rem; display: flex; align-items: center; justify-content: center; box-shadow: 0 8px 20px rgba(13, 110, 253,0.15);">
                     <span style="font-size: 4rem;">🐱</span>
                 </div>
                 <h1 style="color: #333; margin: 0; font-size: 2rem;">${user.name}</h1>
@@ -1006,19 +1008,19 @@ function renderProfile() {
             </div>
             
             <div class="grid" style="grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 3rem;">
-                <div class="card" style="background: linear-gradient(135deg, #3ab0ff, #FFCA28); color: white; text-align: center; padding: 2.5rem; border: none; box-shadow: 0 10px 20px rgba(0,0,0,0.1);">
+                <div class="card" style="background: linear-gradient(135deg, #33ccff, #FFCA28); color: white; text-align: center; padding: 2.5rem; border: none; box-shadow: 0 10px 20px rgba(0,0,0,0.1);">
                     <div style="font-size: 3.5rem; font-weight: 800; line-height: 1;">${totalXP}</div>
                     <div style="font-size: 1.1rem; opacity: 0.9; margin-top: 0.5rem;">Total Poin (XP)</div>
                 </div>
-                <div class="card" style="background: linear-gradient(135deg, #FFCA28, #3ab0ff); color: white; text-align: center; padding: 2.5rem; border: none; box-shadow: 0 10px 20px rgba(0,0,0,0.1);">
+                <div class="card" style="background: linear-gradient(135deg, #FFCA28, #33ccff); color: white; text-align: center; padding: 2.5rem; border: none; box-shadow: 0 10px 20px rgba(0,0,0,0.1);">
                     <div style="font-size: 3.5rem; font-weight: 800; line-height: 1;">${quizSelesai}</div>
                     <div style="font-size: 1.1rem; opacity: 0.9; margin-top: 0.5rem;">Quiz Selesai</div>
                 </div>
-                <div class="card" style="background: linear-gradient(135deg, #FFB300, #3ab0ff); color: white; text-align: center; padding: 2.5rem; border: none; box-shadow: 0 10px 20px rgba(0,0,0,0.1);">
+                <div class="card" style="background: linear-gradient(135deg, #FFB300, #33ccff); color: white; text-align: center; padding: 2.5rem; border: none; box-shadow: 0 10px 20px rgba(0,0,0,0.1);">
                     <div style="font-size: 3.5rem; font-weight: 800; line-height: 1;">${avgScore}%</div>
                     <div style="font-size: 1.1rem; opacity: 0.9; margin-top: 0.5rem;">Rata-rata Nilai</div>
                 </div>
-                <div class="card" style="background: linear-gradient(135deg, #3ab0ff, #FFB300); color: white; text-align: center; padding: 2.5rem; border: none; box-shadow: 0 10px 20px rgba(0,0,0,0.1);">
+                <div class="card" style="background: linear-gradient(135deg, #33ccff, #FFB300); color: white; text-align: center; padding: 2.5rem; border: none; box-shadow: 0 10px 20px rgba(0,0,0,0.1);">
                     <div style="font-size: 3.5rem; font-weight: 800; line-height: 1;">${streakHari} Hari</div>
                     <div style="font-size: 1.1rem; opacity: 0.9; margin-top: 0.5rem;">Streak Belajar</div>
                 </div>

@@ -2,7 +2,7 @@
 body {
     margin: 0;
     font-family: 'Poppins', system-ui, -apple-system, sans-serif;
-    background-color: #fdfaf6;
+    background-color: #f4f9ff;
     color: #333;
 }
 
@@ -24,7 +24,7 @@ body {
 }
 .navbar h2 {
     margin: 0;
-    color: #0d6efd;
+    color: #0066ff;
     font-size: 1.5rem;
 }
 .nav-links {
@@ -40,7 +40,7 @@ body {
     transition: color 0.2s;
 }
 .nav-links a:hover {
-    color: #0d6efd;
+    color: #0066ff;
 }
 
 /* Container */
@@ -87,12 +87,12 @@ input {
 }
 input:focus {
     outline: none;
-    border-color: #0d6efd;
+    border-color: #0066ff;
     box-shadow: 0 0 0 3px rgba(13, 110, 253, 0.1);
 }
 button {
     padding: 0.75rem 1.5rem;
-    background: #0d6efd;
+    background: #0066ff;
     color: white;
     border: none;
     border-radius: 6px;
@@ -102,7 +102,7 @@ button {
     transition: background 0.2s;
 }
 button:hover {
-    background: #0a58ca;
+    background: #0052cc;
 }
 button:disabled {
     background: #ced4da;
@@ -134,15 +134,15 @@ button:disabled {
 }
 .option-btn:hover { background: #e9ecef; }
 .option-btn.selected {
-    background: #e7f1ff;
-    border-color: #0d6efd;
-    color: #0d6efd;
+    background: #e6f2ff;
+    border-color: #0066ff;
+    color: #0066ff;
     font-weight: bold;
 }
 
 /* Result Page Styles */
 .result-header {
-    background: linear-gradient(135deg, #0a3d91, #3ab0ff);
+    background: linear-gradient(135deg, #0066ff, #33ccff);
     border-radius: 0 0 50% 50%;
     padding: 3rem 1rem 8rem;
     text-align: center;
@@ -211,7 +211,7 @@ button:disabled {
     content: '●';
     font-size: 1rem;
 }
-.stat-item .val.blue::before, .stat-item .val.blue { color: #0d6efd; }
+.stat-item .val.blue::before, .stat-item .val.blue { color: #0066ff; }
 .stat-item .val.green::before, .stat-item .val.green { color: #28a745; }
 .stat-item .val.red::before, .stat-item .val.red { color: #dc3545; }
 .stat-item .label {
@@ -240,7 +240,7 @@ button:disabled {
     width: 65px;
     height: 65px;
     border-radius: 50%;
-    background: #0d6efd;
+    background: #0066ff;
     color: white;
     display: flex;
     align-items: center;
@@ -252,7 +252,7 @@ button:disabled {
     transform: scale(1.08);
 }
 .action-label {
-    color: #0d6efd;
+    color: #0066ff;
     font-size: 0.9rem;
     font-weight: 500;
 }
