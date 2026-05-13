@@ -247,7 +247,7 @@ function renderLogin() {
             <form id="loginForm">
                 <input type="email" id="email" placeholder="Alamat Email" required />
                 <input type="password" id="password" placeholder="Kata Sandi" required />
-                <button type="submit" style="width: auto; padding: 0.75rem 2rem; display: inline-block;">Masuk Sekarang</button>
+                <button type="submit" style="width: 100%;">Masuk Sekarang</button>
             </form>
             <div style="text-align: center; margin-top: 1.5rem; font-size: 0.95rem;">
                 Belum memiliki akun? <a style="cursor:pointer; color:#0d6efd; font-weight: 500;" onclick="navigate('/register')">Daftar sekarang</a>
@@ -269,7 +269,7 @@ function renderRegister() {
                 <input type="text" id="regName" placeholder="Nama Lengkap" required />
                 <input type="email" id="regEmail" placeholder="Alamat Email" required />
                 <input type="password" id="regPassword" placeholder="Buat Kata Sandi" required />
-                <button type="submit" style="width: auto; padding: 0.75rem 2rem; display: inline-block;">Daftar & Mulai Belajar</button>
+                <button type="submit" style="width: 100%;">Daftar & Mulai Belajar</button>
             </form>
             <div style="text-align: center; margin-top: 1.5rem; font-size: 0.95rem;">
                 Sudah memiliki akun? <a style="cursor:pointer; color:#0d6efd; font-weight: 500;" onclick="navigate('/login')">Login di sini</a>
@@ -376,18 +376,18 @@ function renderQuiz() {
         <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1.5rem;">
             <h2 style="margin-top: 0;">${activeQuizState.quiz.subject} - ${activeQuizState.quiz.title}</h2>
             <div style="display: flex; flex-direction: column; align-items: flex-end;">
-                <div style="background: #fff3cd; color: #856404; padding: 0.5rem 1rem; border-radius: 6px; font-weight: bold; border: 1px solid #ffeeba;">
+                <div style="background: linear-gradient(135deg, #0a3d91, #3ab0ff); color: white; padding: 0.5rem 1rem; border-radius: 6px; font-weight: bold; border: none; box-shadow: 0 2px 8px rgba(13, 110, 253, 0.3);">
                     Sisa Waktu: <span id="timerDisplay">${activeQuizState.questionTimer}</span> detik
                 </div>
             </div>
         </div>
         
         <div style="margin-bottom: 1.5rem;">
-            <div style="display: flex; justify-content: space-between; font-size: 0.85rem; color: #6c757d; margin-bottom: 8px; font-weight: bold;">
-                <span id="bonusTextDisplay" style="color: #28a745;">Bonus Kecepatan Aktif!</span>
+            <div style="display: flex; justify-content: space-between; font-size: 0.85rem; margin-bottom: 8px; font-weight: bold;">
+                <span id="bonusTextDisplay" style="color: #0d6efd;">Bonus Kecepatan Aktif!</span>
             </div>
             <div style="width: 100%; height: 10px; background: #e9ecef; border-radius: 5px; overflow: hidden; box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);">
-                <div id="bonusBarDisplay" style="width: 100%; height: 100%; background: #28a745; transition: width 1s linear, background-color 0.3s;"></div>
+                <div id="bonusBarDisplay" style="width: 100%; height: 100%; background: linear-gradient(90deg, #3ab0ff, #0a3d91); transition: width 1s linear, background 0.3s;"></div>
             </div>
         </div>
         
@@ -395,7 +395,7 @@ function renderQuiz() {
             <div style="margin-bottom: 1rem; color: #6c757d; font-weight: 500;">
                 Pertanyaan ${qIndex + 1} dari ${totalQ}
                 <div style="width: 100%; height: 8px; background: #e9ecef; border-radius: 4px; margin-top: 8px;">
-                    <div style="height: 100%; width: ${progressPct}%; background: #0d6efd; border-radius: 4px; transition: width 0.3s;"></div>
+                    <div style="height: 100%; width: ${progressPct}%; background: linear-gradient(90deg, #3ab0ff, #0a3d91); border-radius: 4px; transition: width 0.3s;"></div>
                 </div>
             </div>
             
