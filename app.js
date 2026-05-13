@@ -381,7 +381,7 @@ function renderQuiz() {
         
         <div style="margin-bottom: 1.5rem;">
             <div style="display: flex; justify-content: space-between; font-size: 0.85rem; margin-bottom: 8px; font-weight: bold;">
-                <span id="bonusTextDisplay" style="color: #0066ff;">Bonus Kecepatan Aktif!</span>
+                <span id="bonusTextDisplay" style="color: #0066ff;">Waktu Tersisa</span>
             </div>
             <div style="width: 100%; height: 10px; background: #e9ecef; border-radius: 5px; overflow: hidden; box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);">
                 <div id="bonusBarDisplay" style="width: 100%; height: 100%; background: linear-gradient(90deg, #33ccff, #0066ff); transition: width 1s linear, background 0.3s;"></div>
@@ -443,31 +443,13 @@ function submitQuiz() {
     let totalPoints = 0;
     
     const totalQuestions = activeQuizState.quiz.questions.length;
-    const maxBasePerQuestion = 80 / totalQuestions; // 80% of total score
-    const maxBonusPerQuestion = 20 / totalQuestions; // 20% of total score
+    const pointsPerQuestion = 100 / totalQuestions;
 
     activeQuizState.quiz.questions.forEach((q, idx) => {
         const isAnswered = activeQuizState.answers[idx] !== null;
         if (isAnswered && activeQuizState.answers[idx] === q.a) {
             correctCount++;
-            let timeTaken = activeQuizState.timeTaken[idx];
-            if (timeTaken === undefined || timeTaken === null) timeTaken = activeQuizState.maxTimer;
-            
-            let timeBonus = 0;
-            const GRACE_PERIOD = 10; // First 10 seconds have no penalty
-            
-            if (timeTaken <= GRACE_PERIOD) {
-                // Get 100% of the speed bonus if answered within 10 seconds
-                timeBonus = maxBonusPerQuestion;
-            } else {
-                // Decay the bonus slowly over the remaining time after 10 seconds
-                const timeAfterGrace = timeTaken - GRACE_PERIOD;
-                const remainingTimeWindow = Math.max(1, activeQuizState.maxTimer - GRACE_PERIOD);
-                const decayRatio = 1 - Math.min(1, timeAfterGrace / remainingTimeWindow);
-                timeBonus = decayRatio * maxBonusPerQuestion;
-            }
-            
-            totalPoints += (maxBasePerQuestion + timeBonus);
+            totalPoints += pointsPerQuestion;
         } else {
             wrongCount++;
         }
@@ -937,27 +919,23 @@ setInterval(() => {
             if (el) el.innerText = activeQuizState.questionTimer;
             
             const maxTimer = activeQuizState.maxTimer;
-            const elapsed = maxTimer - activeQuizState.questionTimer;
-            let bonusPct = 100;
-            let bonusColor = '#0066ff';
-            let bonusBg = 'linear-gradient(90deg, #33ccff, #0066ff)';
-            let bonusText = 'Bonus Maksimal!';
+            const timeLeftPct = (activeQuizState.questionTimer / maxTimer) * 100;
+            let barColor = '#0066ff';
+            let barBg = 'linear-gradient(90deg, #33ccff, #0066ff)';
+            let barText = 'Waktu Tersisa';
             
-            if (elapsed > 10) {
-                const remaining = Math.max(1, maxTimer - 10);
-                const afterGrace = elapsed - 10;
-                bonusPct = Math.max(0, 100 - (afterGrace / remaining) * 100);
-                bonusColor = bonusPct > 50 ? '#0066ff' : '#dc3545';
-                bonusBg = bonusPct > 50 ? 'linear-gradient(90deg, #33ccff, #0066ff)' : '#dc3545';
-                bonusText = 'Bonus menyusut...';
+            if (timeLeftPct <= 25) {
+                barColor = '#dc3545';
+                barBg = '#dc3545';
+                barText = 'Waktu Hampir Habis!';
             }
             
             const bar = document.getElementById('bonusBarDisplay');
             const txt = document.getElementById('bonusTextDisplay');
-            if (bar) { bar.style.width = bonusPct + '%'; bar.style.background = bonusBg; }
+            if (bar) { bar.style.width = timeLeftPct + '%'; bar.style.background = barBg; }
             if (txt) { 
-                txt.innerText = bonusText; 
-                txt.style.color = bonusColor;
+                txt.innerText = barText; 
+                txt.style.color = barColor;
             }
         } else {
             // Time is up for current question
