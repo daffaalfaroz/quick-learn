@@ -252,9 +252,6 @@ function renderLogin() {
             <div style="text-align: center; margin-top: 1.5rem; font-size: 0.95rem;">
                 Belum memiliki akun? <a style="cursor:pointer; color:#0d6efd; font-weight: 500;" onclick="navigate('/register')">Daftar sekarang</a>
             </div>
-            <div style="margin-top: 20px; padding: 10px; background: #e9ecef; border-radius: 4px; font-size: 12px; color: #666;">
-                <strong>Demo Note:</strong> Anda bisa langsung klik Daftar jika belum memiliki akun di sesi ini. Data disimpan di memory.
-            </div>
         </div>
     `;
 }
